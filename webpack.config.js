@@ -13,6 +13,9 @@ module.exports = {
       template: "./src/index.html",
     }),
   ],
+  devServer: {
+    watchFiles: ["./src/index.html"],
+  },
   module: {
     rules: [
       {
