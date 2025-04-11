@@ -7,3 +7,57 @@
 #content {
     font-size: 40px;
 }
+
+.home {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+
+.menu {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+
+.dish-list {
+    list-style: none;
+    padding: 0;
+}
+
+.dish-item {
+    margin: 20px 0;
+}
+
+.dish-item h2 {
+    font-size: 1.5em;
+    color: #d35400;
+}
+
+.dish-item p {
+    font-size: 1em;
+    color: #555;
+}
+
+.about {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+
+.about h1 {
+    font-size: 2em;
+    color: #2c3e50;
+}
+
+.about p {
+    font-size: 1em;
+    color: #555;
+    margin: 10px 0;
+}
+
+.about h2 {
+    font-size: 1.5em;
+    color: #d35400;
+    margin-top: 20px;
+}

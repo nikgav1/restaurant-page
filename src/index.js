@@ -1,67 +1,43 @@
-import './style.css'
+import './style.css';
+import createHome from './pages/home.js';
+import createMenu from './pages/menu.js';
+import createAbout from './pages/about.js';
 
-function clearContent(container){
+function clearContent(container) {
     Array.from(container.children).forEach(child => {
         child.remove();
     });
 }
-function createHome(){
-    const mainBlock = document.createElement("div")
-    const h1 = document.createElement("h1")
-    h1.textContent = "Home"
-    const p = document.createElement("p")
-    p.textContent = "Welcome to our restaurant! We are glad to have you here."
-    mainBlock.append(h1, p)
-    return mainBlock
-}
-function createMenu(){
-    const mainBlock = document.createElement("div")
-    const h1 = document.createElement("h1")
-    h1.textContent = "Menu"
-    const p = document.createElement("p")
-    p.textContent = "Check out our delicious menu!"
-    mainBlock.append(h1, p)
-    return mainBlock
-}
-function createAbout(){
-    const mainBlock = document.createElement("div")
-    const h1 = document.createElement("h1")
-    h1.textContent = "About"
-    const p = document.createElement("p")
-    p.textContent = "Learn more about us!"
-    mainBlock.append(h1, p)
-    return mainBlock
-}
-function initializeButtons(){
-    const container = document.getElementById('content')
-    
+
+function initializeButtons() {
+    const container = document.getElementById('content');
     const buttons = Array.from(document.querySelector('nav').children);
 
+    // Pre-create elements
+    const homeElement = createHome();
+    const menuElement = createMenu();
+    const aboutElement = createAbout();
+
+    // Load the home page by default
+    container.appendChild(homeElement);
+
     buttons.forEach(btn => {
-        const id = btn.id
-        switch (id) {
-            case 'home': {
-                btn.addEventListener("click", () => {
-                    clearContent(container);
-                    container.appendChild(createHome())
-                });
-                break;
+        const id = btn.id;
+        btn.addEventListener('click', () => {
+            clearContent(container);
+            switch (id) {
+                case 'home':
+                    container.appendChild(homeElement);
+                    break;
+                case 'menu':
+                    container.appendChild(menuElement);
+                    break;
+                case 'about':
+                    container.appendChild(aboutElement);
+                    break;
             }
-            case 'menu': {
-                btn.addEventListener("click", () => {
-                    clearContent(container);
-                    container.appendChild(createMenu())
-                });
-                break;
-            }
-            case 'about': {
-                btn.addEventListener("click", () => {
-                    clearContent(container);
-                    container.appendChild(createAbout())
-                });
-                break;
-            }
-        }
+        });
     });
 }
+
 initializeButtons();
